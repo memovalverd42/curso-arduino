@@ -10,7 +10,7 @@ const char KEYS[ROWS][COLUMNS] = {
   {'*','0','#','D'}
 };
 
-byte rowsPins[ROWS] = {9, 8, 7, 6}; 
-byte columnsPins[COLUMNS] = {5, 4, 3, 2}; 
+byte rowsPins[ROWS] = {2, 3, 4, 5}; 
+byte columnsPins[COLUMNS] = {6, 7, 8, 9}; 
 
 Keypad keypad = Keypad( makeKeymap(KEYS), rowsPins, columnsPins, ROWS, COLUMNS); 
