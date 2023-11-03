@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 
 class MyLCD : public LiquidCrystal_I2C {
@@ -37,19 +38,27 @@ class MyLCD : public LiquidCrystal_I2C {
             print(data);
         }
 
-        void printString(String text){
-            uint8_t col = 0;
-            uint8_t row = 0;
-            clear();
+        void print2(uint8_t col, uint8_t row, char* data, bool cls = false) {
+            if(cls)
+                clear();
 
-            for(int i=0; i<text.length(); i++){
-                print2(col, row, text[i]);
-                col++;
-                if(col == _cols) {
-                    col = 0;
-                    row++;
-                }
-            }
+            setCursor(col, row);
+            print(data);
         }
+
+        // void printString(String text){
+        //     uint8_t col = 0;
+        //     uint8_t row = 0;
+        //     clear();
+
+        //     for(int i=0; i<text.length(); i++){
+        //         print2(col, row, text[i]);
+        //         col++;
+        //         if(col == _cols) {
+        //             col = 0;
+        //             row++;
+        //         }
+        //     }
+        // }
 
 };

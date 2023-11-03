@@ -33,6 +33,7 @@ int get_lenght( void ) {
 
     String user_input;
     char c;
+    unsigned long previousMillis = millis();
 
     Serial.print("Longitud del password que deseas (# Para confirmar): ");
     while( true ) {
@@ -45,6 +46,10 @@ int get_lenght( void ) {
 
         } else if( c == '#' ) {
             return user_input.toInt();
+        }
+
+        if(millis() - previousMillis >= 3000){
+            return -1;
         }
 
     }
@@ -68,7 +73,6 @@ int get_level( void ) {
                 Serial.println("\nPor favor ingres un valor entre 1 y 3");
             }
             
-
         } 
 
     }
